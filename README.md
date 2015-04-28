@@ -1,7 +1,7 @@
 README
 ======
 
-Find the destination location for DOIs.
+Mass DOI resolver and checker.
 
 Usage
 -----
