@@ -19,6 +19,8 @@ import (
 	"github.com/cenkalti/backoff"
 )
 
+const Version = "0.1.1"
+
 type Result struct {
 	Status    string
 	URL       string
@@ -129,8 +131,14 @@ func retrieve(target *url.URL) Result {
 func main() {
 
 	numWorkers := flag.Int("w", runtime.NumCPU(), "number of workers")
+	version := flag.Bool("v", false, "prints current program version")
 
 	flag.Parse()
+
+	if *version {
+		fmt.Println(Version)
+		os.Exit(0)
+	}
 
 	runtime.GOMAXPROCS(*numWorkers)
 
