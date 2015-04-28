@@ -6,7 +6,7 @@ Find the destination location for DOIs.
 Usage
 -----
 
-    $ hurrly < urls.txt > urls.ldj
+    $ hurrly < urls.txt > urls.tsv
 
 Input is a list of DOI API URLs to check, one URL per line. Output is TSV with
 the redirect location and some more information.
