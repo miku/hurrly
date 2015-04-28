@@ -21,6 +21,8 @@ import (
 
 const Version = "0.1.1"
 
+var EmptyLocations = []string{"NOT_AVAILABLE"}
+
 type Result struct {
 	Status    string
 	URL       string
@@ -80,7 +82,8 @@ func retrieve(target *url.URL) Result {
 	}, backoff.NewExponentialBackOff())
 
 	if err != nil {
-		return Result{Status: "E_REQ", URL: target.String(), Took: 0, Epoch: time.Now().Unix()}
+		return Result{Status: "E_REQ", URL: target.String(), Took: 0,
+			Epoch: time.Now().Unix(), Locations: EmptyLocations}
 	}
 
 	var resp *http.Response
@@ -96,13 +99,15 @@ func retrieve(target *url.URL) Result {
 	elapsed := time.Since(start)
 
 	if err != nil {
-		return Result{Status: "E_REQ", URL: target.String(), Took: elapsed.Seconds(), Epoch: time.Now().Unix()}
+		return Result{Status: "E_REQ", URL: target.String(), Took: elapsed.Seconds(),
+			Epoch: time.Now().Unix(), Locations: EmptyLocations}
 	}
 
 	body, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
-		return Result{Status: "E_READ", URL: target.String(), Took: elapsed.Seconds(), Epoch: time.Now().Unix()}
+		return Result{Status: "E_READ", URL: target.String(), Took: elapsed.Seconds(),
+			Epoch: time.Now().Unix(), Locations: EmptyLocations}
 	}
 
 	resp.Body.Close()
@@ -110,7 +115,12 @@ func retrieve(target *url.URL) Result {
 	var ar APIResponse
 	err = json.Unmarshal(body, &ar)
 	if err != nil {
-		return Result{Status: "E_JSON", URL: target.String(), Took: elapsed.Seconds(), Epoch: time.Now().Unix()}
+		return Result{Status: "E_JSON", URL: target.String(), Took: elapsed.Seconds(),
+			Epoch: time.Now().Unix(), Locations: EmptyLocations}
+	}
+
+	if resp.StatusCode != 200 {
+		return Result{Status: resp.Status, URL: target.String(), Took: elapsed.Seconds(), Epoch: time.Now().Unix(), Locations: EmptyLocations}
 	}
 
 	result := Result{Status: resp.Status, URL: target.String(), Took: elapsed.Seconds(), Epoch: time.Now().Unix()}
@@ -124,6 +134,9 @@ func retrieve(target *url.URL) Result {
 			}
 			result.Locations = append(result.Locations, v.Value)
 		}
+	}
+	if len(result.Locations) == 0 {
+		result.Locations = EmptyLocations
 	}
 	return result
 }
