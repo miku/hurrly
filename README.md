@@ -8,8 +8,10 @@ Usage
 
     $ hurrly < urls.txt > urls.tsv
 
-Input is a list of DOI API URLs to check, one URL per line. Output is TSV with
-the redirect location and some more information.
+Input is a list of DOI API URLs to check, one URL per line.
+Only URL of the form `http://doi.org/api/handles/<DOI>` are accepted.
+
+Output is TSV with the redirect location and some more information: status, request time, epoch, url, redirect.
 
     $ hurrly < fixtures/10.txt
     200 OK  0.8956  1430238589  http://.../10.1590/s0100-41582006000200010  http://www.scie...
