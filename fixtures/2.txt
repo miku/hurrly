@@ -1,0 +1,2 @@
+http://doi.org/api/handles/10.1590/s0100-41582006000200010
+http://doi.org/api/handles/10.1590/s0034-71402005000400003

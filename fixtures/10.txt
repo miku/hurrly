@@ -1,0 +1,11 @@
+http://doi.org/api/handles/10.1590/s0100-41582006000200010
+http://doi.org/api/handles/10.1590/s0034-71402005000400003
+http://doi.org/api/handles/10.1590/s0034-71402005000400005
+http://doi.org/api/handles/10.1590/s0100-512x2004000200004
+http://doi.org/api/handles/10.1590/s0100-512x2004000200005
+http://doi.org/api/handles/10.1590/s0102-47442006000100001
+http://doi.org/api/handles/10.1590/s0102-47442006000100002
+http://doi.org/api/handles/10.1590/s0102-47442006000100003
+http://doi.org/api/handles/10.1590/s0102-47442006000100005
+http://doi.org/api/handles/10.1590/s0102-47442006000100006
+http://doi.org/api/handles/10.sss1590/s0102-47442006000100006
