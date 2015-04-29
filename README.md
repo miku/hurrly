@@ -50,3 +50,5 @@ You can use `hurrly` to look up single DOI links as well:
 
     $ echo "http://doi.org/api/handles/10.1021/la025770y" | hurrly | cut -f5
     http://pubs.acs.org/doi/abs/10.1021/la025770y
+
+Performance data point: `hurrly -w 64` can resolve about 1M URLs per hour.
