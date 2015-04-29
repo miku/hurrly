@@ -8,4 +8,4 @@ http://doi.org/api/handles/10.1590/s0102-47442006000100002
 http://doi.org/api/handles/10.1590/s0102-47442006000100003
 http://doi.org/api/handles/10.1590/s0102-47442006000100005
 http://doi.org/api/handles/10.1590/s0102-47442006000100006
-http://doi.org/api/handles/10.sss1590/s0102-47442006000100006
+http://doi.org/api/handles/10.xxxx1590xxxx/nononoxxxx
