@@ -1,3 +1,6 @@
 /hurrly
 fixtures/crossref.urls
 fixtures/crossref.api.urls
+packaging/deb/hurrly/usr
+*.deb
+*.rpm
