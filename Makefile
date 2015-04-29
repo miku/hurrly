@@ -28,19 +28,20 @@ clean:
 	rm -f coverage.out
 	rm -f $(TARGETS)
 	rm -f hurrly-*.x86_64.rpm
-	rm -f debian/hurrly*.deb
-	rm -rf debian/hurrly/usr
+	rm -f hurrly_*.deb
+	rm -rf packaging/deb/hurrly/usr
 
 cover:
 	go get -d && go test -v	-coverprofile=coverage.out
 	go tool cover -html=coverage.out
 
 hurrly:
-	go build cmd/hurrly/main.go
+	go build -o hurrly cmd/hurrly/main.go
 
 # ==== packaging
 
 deb: $(TARGETS)
-	mkdir -p debian/hurrly/usr/sbin
-	cp $(TARGETS) debian/hurrly/usr/sbin
-	cd debian && fakeroot dpkg-deb --build hurrly .
+	mkdir -p packaging/deb/hurrly/usr/sbin
+	cp $(TARGETS) packaging/deb/hurrly/usr/sbin
+	cd packaging/deb && fakeroot dpkg-deb --build hurrly .
+	mv packaging/deb/hurrly_*deb .
