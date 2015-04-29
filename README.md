@@ -8,7 +8,7 @@ Installation
 
 Releases: https://github.com/miku/hurrly/releases
 
-Or the go tool:
+Or use the [go tool](https://golang.org/cmd/go/):
 
     $ go get github.com/miku/hurrly/cmd/hurrly
 
