@@ -45,3 +45,10 @@ deb: $(TARGETS)
 	cp $(TARGETS) packaging/deb/hurrly/usr/sbin
 	cd packaging/deb && fakeroot dpkg-deb --build hurrly .
 	mv packaging/deb/hurrly_*deb .
+
+rpm: $(TARGETS)
+	mkdir -p $(HOME)/rpmbuild/{BUILD,SOURCES,SPECS,RPMS}
+	cp ./packaging/rpm/hurrly.spec $(HOME)/rpmbuild/SPECS
+	cp $(TARGETS) $(HOME)/rpmbuild/BUILD
+	./packaging/rpm/buildrpm.sh hurrly
+	cp $(HOME)/rpmbuild/RPMS/x86_64/hurrly*.rpm .
