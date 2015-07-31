@@ -143,6 +143,7 @@ func retrieve(target *url.URL) Result {
 
 func main() {
 
+	prefix := flag.String("prefix", "http://doi.org/api/handles", "string to prepend to line")
 	numWorkers := flag.Int("w", runtime.NumCPU(), "number of workers")
 	version := flag.Bool("v", false, "prints current program version")
 
@@ -186,8 +187,8 @@ func main() {
 			continue
 		}
 
-		if !strings.HasPrefix(target, "http://doi.org/api/handles/") {
-			log.Fatal("only http://doi.org/api/handles/... URLs supported for now")
+		if !strings.HasPrefix(target, *prefix) {
+			target = fmt.Sprintf("%s/%s", *prefix, target)
 		}
 
 		parsed, err := url.Parse(target)
