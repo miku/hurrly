@@ -45,7 +45,6 @@ rm -rf %{_topdir}/BUILD/%{name}
 %defattr(-,root,root)
 /usr/local/sbin/hurrly
 
-
 %changelog
 * Wed Apr 29 2015 Martin Czygan
 - 0.1.3 release
