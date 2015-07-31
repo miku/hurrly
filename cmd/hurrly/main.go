@@ -19,7 +19,7 @@ import (
 	"github.com/cenkalti/backoff"
 )
 
-const Version = "0.1.3"
+const Version = "0.1.4"
 
 var EmptyLocations = []string{"NOT_AVAILABLE"}
 

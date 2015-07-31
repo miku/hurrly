@@ -1,6 +1,6 @@
 Summary:    Mass DOI resolver.
 Name:       hurrly
-Version:    0.1.3
+Version:    0.1.4
 Release:    0
 License:    MIT
 BuildArch:  x86_64
@@ -46,6 +46,10 @@ rm -rf %{_topdir}/BUILD/%{name}
 /usr/local/sbin/hurrly
 
 %changelog
+* Fri Jul 31 2015 Martin Czygan
+- 0.1.4 release
+- allow list of DOIs as input file (automatically prepend http://doi.org/api/handles)
+
 * Wed Apr 29 2015 Martin Czygan
 - 0.1.3 release
 - initial import
