@@ -15,8 +15,7 @@ Or use the [go tool](https://golang.org/cmd/go/):
 Usage
 -----
 
-Input is a list of DOI API URLs to check, one URL per line.
-Only URL of the form `http://doi.org/api/handles/<DOI>` are accepted.
+Input is a list of DOIs or DOI API URLs to check, one DOI or one URL per line:
 
     $ cat fixtures/urls.txt
     http://doi.org/api/handles/10.1590/s0100-41582006000200010
