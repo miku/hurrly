@@ -19,10 +19,13 @@ import (
 	"github.com/cenkalti/backoff"
 )
 
+// Version of application
 const Version = "0.1.4"
 
+// EmptyLocations when we do not get any result or fail.
 var EmptyLocations = []string{"NOT_AVAILABLE"}
 
+// Result is the output of this program.
 type Result struct {
 	Status    string
 	URL       string
@@ -31,6 +34,7 @@ type Result struct {
 	Epoch     int64
 }
 
+// String formats the result as tab-separated values.
 func (r Result) String() string {
 	return fmt.Sprintf("%s\t%0.4f\t%d\t%s\t%s\t", r.Status, r.Took, r.Epoch, r.URL, strings.Join(r.Locations, "|"))
 }
@@ -40,6 +44,7 @@ type URLValue struct {
 	Value  string `json:"value"`
 }
 
+// Value is part of the response.
 type Value struct {
 	Index     int             `json:"index"`
 	Type      string          `json:"type"`
@@ -48,6 +53,7 @@ type Value struct {
 	Timestamp string          `json:"timestamp"`
 }
 
+// APIResponse is the response from DOI.
 type APIResponse struct {
 	Code   int     `json:"responseCode"`
 	Handle string  `json:"handle"`
