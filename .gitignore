@@ -4,3 +4,5 @@ fixtures/crossref.api.urls
 packaging/deb/hurrly/usr
 *.deb
 *.rpm
+
+/vendor
